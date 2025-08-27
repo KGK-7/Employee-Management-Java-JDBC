@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Run TestDB",
+      "request": "launch",
+      "mainClass": "TestDB",
+      "classPaths": [
+        "bin",
+        "lib/mysql-connector-j-8.0.33.jar"
+      ]
+    }
+  ]
+}
