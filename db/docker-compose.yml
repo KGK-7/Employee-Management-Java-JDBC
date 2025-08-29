@@ -1,19 +1,16 @@
-version: '3.9'
+version: "3.8"
+
 services:
   mysql:
     image: mysql:8.0
-    container_name: corporate-mysql
+    container_name: mysql_db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: root        # Root password
+      MYSQL_DATABASE: company_db       # Default database
+      MYSQL_USER: gokul                # Normal user
+      MYSQL_PASSWORD: gokul123         # Normal user password
     ports:
-      - "3306:3306"
+      - "3306:3306"                    # Map MySQL port
     volumes:
-      - mysql_data:/var/lib/mysql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-
-volumes:
-  mysql_data:
+      - ./data:/var/lib/mysql          # Persist data locally
